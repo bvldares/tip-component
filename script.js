@@ -1,10 +1,25 @@
 const btnEl = document.querySelectorAll(".btn")
-let tipValue = null
+const inputCash = document.getElementById("calculator-input-amount")
+const inputPeople = document.getElementById("calculator-input-people")
+
+const tipEl = document.getElementById("tip")
+const totalEl = document.getElementById("total")
 
 
 btnEl.forEach(function(btn){
     btn.addEventListener("click", function(){
-        tipValue = btn.value
-        console.log(tipValue)
+       tipEl.textContent = tipCalculator(btn.value, inputPeople.value, inputCash.value)
     })
 })
+
+
+
+
+function tipCalculator(percentage, people, total){
+    return (total * percentage) / people
+}
+
+
+function totalCalculator(total, tip, people){
+    return (total + tip) / people
+}
