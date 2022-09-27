@@ -57,6 +57,7 @@ select {
   font: inherit;
 }
 
+
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
@@ -90,14 +91,14 @@ select {
 body{
     background-color: #C5E4E7;
     font-family: var(--ff-primary);
+    display: flex;
+    flex-direction: column;
 }
 
 main{
-    position: fixed;
-    top: 12%;
-    bottom: 0;
-    left:0;
-    right: 0;
+    max-width: 500px;
+    margin-top: auto;
+    align-self: center;
     background-color: #fff;
     border-radius: 15px 15px 0px 0px;
     display: flex;
@@ -113,6 +114,7 @@ main{
     padding: .5em;
 }
 
+
 .calculator-input-amount img{
     object-fit: contain;
 }
@@ -121,15 +123,20 @@ input[type=number]{
     border: none;
     text-align: right;
     font-size: var(--fs-btn);
+    width:92%;
 }
+
 
 .calculator-btn-container{
     display: grid;
-    grid-template-columns: repeat(2, 45%);
+    grid-template-columns: repeat(2, calc(50% - .5em));
     gap: .5em;
+    padding: .5em 0;
+    
 }
 
-.btn{
+.btn,
+.btn-keyup{
     padding: .5em;
     font-size: var(--fs-btn);
     background-color: var(--color-dark-green);
@@ -138,7 +145,11 @@ input[type=number]{
     border-radius: 5px;
 }
 
-.calculator-btn-container input[type=number]{text-align: center;}
+.calculator-btn-container input[type=number]{
+  width: 100%;
+  text-align: center;
+}
+
 .calculator-btn-container input[type=number]::placeholder {color: #fff;}
 
 
