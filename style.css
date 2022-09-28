@@ -96,14 +96,18 @@ body{
 }
 
 main{
-    max-width: 500px;
     margin-top: auto;
-    align-self: center;
     background-color: #fff;
     border-radius: 15px 15px 0px 0px;
     display: flex;
     flex-direction: column;
     padding: 1.5em;
+}
+
+.title{
+  margin: .5em auto;
+  margin-top: 1.5em;
+  line-height: 1;
 }
 
 .calculator-input-amount,
@@ -112,26 +116,44 @@ main{
     justify-content: space-between;
     align-items: center;
     padding: .5em;
+    background-color: #e0e0e0;
+    margin: 1em 0;
 }
 
 
-.calculator-input-amount img{
-    object-fit: contain;
+
+.calculator-input-amount img,
+.calculator-input-people img{
+  padding-left: .5em;  
 }
 
 input[type=number]{
     border: none;
     text-align: right;
     font-size: var(--fs-btn);
-    width:92%;
+    width:90%;
+    background-color: #e0e0e0;
 }
+
+input:focus {
+  outline: none !important;
+  border:none;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 
 
 .calculator-btn-container{
     display: grid;
     grid-template-columns: repeat(2, calc(50% - .5em));
     gap: .5em;
-    padding: .5em 0;
+    padding: 1em 0;
     
 }
 
@@ -145,29 +167,43 @@ input[type=number]{
     border-radius: 5px;
 }
 
+.btn:hover,
+.btn:active,
+#reset:hover,
+#reset:active
+{
+  background-color:#9FE8E0;
+  color: var(--color-dark-green);
+}
+
 .calculator-btn-container input[type=number]{
   width: 100%;
   text-align: center;
+  background-color: #00474B;
 }
 
 .calculator-btn-container input[type=number]::placeholder {color: #fff;}
+
+
 
 
 /*section two*/
 
 .result-tip-title{
     color: #fff;
+    font-size: .875rem;
     line-height: 1.2;
 }
 
 span{
     color: var(--color-light-green);
-    font-size: .875rem;
+    font-size: .7rem;
     letter-spacing: 1px;
 }
 
 .result-tip-amount{
-    font-size: var(--fs-medium);
+    font-size:2rem;
+    
 }
 
 .results{
@@ -196,3 +232,54 @@ span{
 }
 
 
+@media(min-width:850px){
+  :root{
+    font-size: 20px;
+  }
+
+  .results{
+    min-width: 320px;
+  }
+}
+
+
+@media(min-width:650px){
+
+  main{
+    position: relative;
+    max-width: 1250px;
+    margin: auto;
+    border-radius: 10px;
+    flex-direction: row;
+  }
+
+  .calculator-subtitle{
+    margin-bottom: .5em;
+  }
+
+  .calculator-btn-container{
+    grid-template-columns: repeat(3, calc(100%/3 - .5em));
+  }
+
+
+  .results{
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-tip-title{
+    white-space: nowrap;
+    
+  }
+
+  .result-tip-amount{
+    margin-left: 1em;
+  }
+
+  #reset{
+    margin-top: auto;
+  }
+
+
+}
